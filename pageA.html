@@ -1,0 +1,353 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Raseel Al-zayed</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@500;700&display=swap">
+<style>
+/* Layout: single column, large hero, project cards with tech filters, timeline-style certificates */
+:root {
+  --bg: #F5F4EF;
+  --surface: #FFFFFF;
+  --fg: #14201D;
+  --muted: #5B6661;
+  --line: #DCDAD1;
+  --accent: #2B4BDB;
+  --accent-ink: #FFFFFF;
+  --chip: #ECEBE4;
+  --display: "Bricolage Grotesque", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1715;
+    --surface: #161F1C;
+    --fg: #EEF1EC;
+    --muted: #9AA7A1;
+    --line: #2A3631;
+    --accent: #7C97FF;
+    --accent-ink: #0F1715;
+    --chip: #1F2A26;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1715;
+  --surface: #161F1C;
+  --fg: #EEF1EC;
+  --muted: #9AA7A1;
+  --line: #2A3631;
+  --accent: #7C97FF;
+  --accent-ink: #0F1715;
+  --chip: #1F2A26;
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.6 var(--body);
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+[dir="rtl"] { font-family: "IBM Plex Sans Arabic", var(--body); }
+.wrap { max-width: 920px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; text-wrap: balance; margin: 0; }
+a { color: var(--accent); }
+button { font: inherit; }
+.label { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* top bar */
+.topbar { display: flex; justify-content: flex-end; gap: 8px; padding: 16px 0; }
+.ctl { background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font: 500 13px/1 var(--body); cursor: pointer; }
+.ctl:focus-visible, a:focus-visible, button:focus-visible, .filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* hero */
+.hero { padding: 40px 0 56px; border-bottom: 1px solid var(--line); }
+.hero h1 { font-size: clamp(44px, 9vw, 92px); font-weight: 800; letter-spacing: -.02em; }
+.hero .ar { font-family: "IBM Plex Sans Arabic", var(--body); font-weight: 700; font-size: clamp(22px, 4vw, 30px); color: var(--muted); margin-top: 10px; }
+.hero .role { margin-top: 24px; font-size: 20px; max-width: 36ch; }
+.status { margin-top: 24px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: 999px; font-size: 14px; }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.hero .links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-block; text-decoration: none; padding: 12px 18px; border-radius: 8px; font: 500 14px/1 var(--body); border: 1px solid var(--line); color: var(--fg); background: var(--surface); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* sections */
+section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 28px; }
+.section-head h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; }
+p.lede { max-width: 62ch; margin: 0; font-size: 18px; }
+
+/* about cards */
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+@media (min-width: 680px) { .about-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; min-width: 0; }
+.card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.card ul { margin: 0; padding-inline-start: 18px; }
+.card li { margin-bottom: 6px; }
+
+/* skills */
+.skill-group + .skill-group { margin-top: 24px; }
+.skill-group .label { margin-bottom: 10px; display: block; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skills span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; background: var(--surface); }
+
+/* project filters and cards */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filter { background: var(--chip); color: var(--fg); border: 1px solid transparent; border-radius: 999px; padding: 7px 14px; font: 500 13px/1 var(--body); cursor: pointer; }
+.filter[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.projects { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 720px) { .projects { grid-template-columns: 1fr 1fr; } }
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.project[hidden] { display: none; }
+.project h3 { font-size: clamp(24px, 4vw, 30px); font-weight: 700; }
+.project .tag { font: 500 12px/1.4 var(--mono); color: var(--accent); letter-spacing: .04em; }
+.project ul { margin: 0; padding-inline-start: 20px; }
+.project li { margin-bottom: 6px; }
+.project .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.project .stack span { font: 500 12px/1 var(--mono); background: var(--chip); padding: 6px 9px; border-radius: 6px; color: var(--muted); }
+.project .more { font-size: 14px; }
+.project .more a { text-decoration: none; }
+
+/* certificates timeline */
+.certs { list-style: none; padding: 0; margin: 0; position: relative; }
+.certs li { display: grid; grid-template-columns: 14px 1fr; gap: 16px; padding-bottom: 22px; position: relative; }
+.certs li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-top: 6px; }
+.certs li::after { content: ""; position: absolute; left: 5px; top: 22px; bottom: 0; width: 2px; background: var(--line); }
+.certs li:last-child::after { display: none; }
+.certs b { font-weight: 600; display: block; }
+.certs .date { color: var(--muted); font: 400 13px/1.4 var(--mono); }
+.certs a { font-size: 14px; }
+
+/* contact */
+.contact .big { font-family: var(--display); font-size: clamp(26px, 6vw, 44px); font-weight: 700; word-break: break-word; }
+.contact .row { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+.copy { background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 8px; padding: 12px 18px; cursor: pointer; font: 500 14px/1 var(--body); }
+footer { padding-top: 32px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* reveal: visible at rest; animates only when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 { animation: rise .7s ease-out both; }
+  .reveal { animation: rise .6s ease-out both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+}
+/* visual upgrade: ambient glow, hover depth, animated gradient name, staggered entrance */
+.hero { position: relative; isolation: isolate; }
+body { overflow-x: clip; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); opacity: .35; z-index: -1; pointer-events: none; }
+.hero::before { width: 380px; height: 380px; background: var(--accent); top: -120px; inset-inline-end: -80px; }
+.hero::after { width: 260px; height: 260px; background: #E0A458; bottom: -80px; inset-inline-start: -60px; opacity: .22; }
+.hero h1 span.grad {
+  background: linear-gradient(100deg, var(--fg) 0%, var(--accent) 50%, var(--fg) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.card, .project { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card:hover, .project:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 18px 40px -20px var(--accent); }
+.skills span { transition: background .2s ease, color .2s ease, transform .2s ease; }
+.skills span:hover { background: var(--accent); color: var(--accent-ink); transform: translateY(-2px); }
+.btn, .ctl, .copy, .filter { transition: transform .15s ease, filter .2s ease; }
+.btn:hover, .copy:hover, .ctl:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn:active, .copy:active, .ctl:active { transform: translateY(0) scale(.98); }
+.status i { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 var(--accent); } 50% { box-shadow: 0 0 0 7px transparent; } }
+.certs li { transition: transform .2s ease; }
+.certs li:hover { transform: translateX(6px); }
+.contact .big { background: linear-gradient(90deg, var(--fg), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-grid .card:nth-child(2), .projects .project:nth-child(2) { animation-delay: .12s; }
+  .about-grid .card:nth-child(3) { animation-delay: .24s; }
+  .hero h1 span.grad { animation: shimmer 6s linear infinite; }
+  @keyframes shimmer { from { background-position: 0% 50%; } to { background-position: 200% 50%; } }
+  .hero::before { animation: drift 14s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(-40px, 30px) scale(1.12); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="wrap">
+  <div class="topbar">
+    <button class="ctl" type="button" id="lang">العربية</button>
+    <button class="ctl" type="button" id="theme" aria-label="Toggle theme">Theme</button>
+  </div>
+
+  <header class="hero">
+    <p class="label" data-en="Computer Science Graduate · Qassim University, 2026" data-ar="خريجة علوم حاسب · جامعة القصيم 2026">Computer Science Graduate · Qassim University, 2026</p>
+    <h1><span class="grad">Raseel</span><br>Al-zayed</h1>
+    <p class="ar">رسيل الزايد</p>
+    <p class="role" data-en="Computer science graduate building AI, computer vision, and game projects, with a focus on clean backend work." data-ar="خريجة علوم حاسب أبني مشاريع في الذكاء الاصطناعي والرؤية الحاسوبية وتطوير الألعاب، مع تركيز على الباك إند.">Computer science graduate building AI, computer vision, and game projects, with a focus on clean backend work.</p>
+    <span class="status"><i></i><span data-en="Open to junior software and AI roles" data-ar="متاحة لوظائف تطوير وذكاء اصطناعي للمبتدئين">Open to junior software and AI roles</span></span>
+    <div class="links">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-head"><h2 data-en="About" data-ar="نبذة">About</h2><span class="label">01</span></div>
+    <p class="lede" data-en="I studied computer science at Qassim University. My work so far includes an AI image-matching system for lost and found items and a 2D game built in Java from the ground up. I am looking for a team where I can keep learning and build useful software." data-ar="درست علوم الحاسب في جامعة القصيم. أعمالي حتى الآن تشمل نظام ذكاء اصطناعي لمطابقة الصور للمفقودات والموجودات، ولعبة ثنائية الأبعاد بلغة Java بُنيت من الصفر. أبحث عن فريق أتعلم فيه وأبني برمجيات مفيدة.">I studied computer science at Qassim University. My work so far includes an AI image-matching system for lost and found items and a 2D game built in Java from the ground up. I am looking for a team where I can keep learning and build useful software.</p>
+    <div class="about-grid">
+      <div class="card reveal">
+        <h3 data-en="Focus" data-ar="التركيز">Focus</h3>
+        <ul>
+          <li data-en="Computer vision and image similarity" data-ar="الرؤية الحاسوبية وتشابه الصور">Computer vision and image similarity</li>
+          <li data-en="Pathfinding and game AI" data-ar="البحث عن المسارات وذكاء الألعاب">Pathfinding and game AI</li>
+          <li data-en="Backend services with Python and Flask" data-ar="خدمات الباك إند بـ Python وFlask">Backend services with Python and Flask</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3 data-en="Education" data-ar="التعليم">Education</h3>
+        <ul>
+          <li data-en="B.Sc. Computer Science, Qassim University" data-ar="بكالوريوس علوم الحاسب، جامعة القصيم">B.Sc. Computer Science, Qassim University</li>
+          <li data-en="Graduated 2026" data-ar="التخرج 2026">Graduated 2026</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3 data-en="Languages" data-ar="اللغات">Languages</h3>
+        <ul>
+          <li data-en="Arabic (native)" data-ar="العربية (اللغة الأم)">Arabic (native)</li>
+          <li data-en="English (professional)" data-ar="الإنجليزية (مهنية)">English (professional)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><h2 data-en="Skills" data-ar="المهارات">Skills</h2><span class="label">02</span></div>
+    <div class="skill-group">
+      <span class="label" data-en="Languages" data-ar="لغات البرمجة">Languages</span>
+      <div class="skills"><span>Java</span><span>Python</span><span>C++</span><span>C#</span><span>HTML</span><span>CSS</span><span>Dart</span></div>
+    </div>
+    <div class="skill-group">
+      <span class="label" data-en="Frameworks and tools" data-ar="الأطر والأدوات">Frameworks and tools</span>
+      <div class="skills"><span>Flask</span><span>Django</span><span>Git</span><span>GitHub</span><span>Render</span></div>
+    </div>
+    <div class="skill-group">
+      <span class="label" data-en="AI and data" data-ar="الذكاء الاصطناعي والبيانات">AI and data</span>
+      <div class="skills"><span>DINOv2</span><span>Vector search</span><span>Qdrant</span><span>Cloud Firestore</span><span>A* pathfinding</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head"><h2 data-en="Projects" data-ar="المشاريع">Projects</h2><span class="label">03</span></div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI and vision</button>
+      <button class="filter" type="button" data-filter="game" aria-pressed="false">Game dev</button>
+    </div>
+    <div class="projects">
+      <article class="project reveal" data-cat="ai">
+        <span class="tag" data-en="Team project · 4 students · Team lead and backend developer" data-ar="مشروع جماعي · 4 طالبات · قائدة الفريق ومطورة الباك إند">Team project · 4 students · Team lead and backend developer</span>
+        <h3>Dhallah (ضالة)</h3>
+        <p data-en="An AI system that helps people find lost and found items by matching photos by visual similarity, not by typed keywords." data-ar="نظام ذكي يساعد على إيجاد المفقودات والموجودات عبر مطابقة الصور بالتشابه البصري، لا بالكلمات المكتوبة.">An AI system that helps people find lost and found items by matching photos by visual similarity, not by typed keywords.</p>
+        <ul>
+          <li data-en="DINOv2 turns each photo into a feature vector, stored in Qdrant." data-ar="يحوّل DINOv2 كل صورة إلى متجه خصائص مخزّن في Qdrant.">DINOv2 turns each photo into a feature vector, stored in Qdrant.</li>
+          <li data-en="Similarity search still works when the angle, lighting, or background changes." data-ar="يبقى البحث بالتشابه دقيقاً حين تتغير الزاوية أو الإضاءة أو الخلفية.">Similarity search still works when the angle, lighting, or background changes.</li>
+          <li data-en="Flask backend connected to Cloud Firestore, deployed on Render." data-ar="باك إند بـ Flask مرتبط بـ Cloud Firestore ومنشور على Render.">Flask backend connected to Cloud Firestore, deployed on Render.</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Flask</span><span>DINOv2</span><span>Qdrant</span><span>Firestore</span><span>Render</span></div>
+      </article>
+
+      <article class="project reveal" data-cat="game">
+        <span class="tag" data-en="Solo project · Java · OOP" data-ar="مشروع فردي · Java · البرمجة كائنية التوجه">Solo project · Java · OOP</span>
+        <h3>Elle's Journey</h3>
+        <p data-en="A 2D exploration game with original artwork, several maps, and enemies that find their way to the player." data-ar="لعبة استكشاف ثنائية الأبعاد برسومات أصلية، وعدة خرائط، وأعداء يجدون طريقهم إلى اللاعب.">A 2D exploration game with original artwork, several maps, and enemies that find their way to the player.</p>
+        <ul>
+          <li data-en="Artwork designed and game built from scratch, without a ready-made engine." data-ar="الرسومات من تصميمي، واللعبة مبنية من الصفر دون محرك جاهز.">Artwork designed and game built from scratch, without a ready-made engine.</li>
+          <li data-en="Multiple playable maps with increasing difficulty." data-ar="عدة خرائط قابلة للعب بصعوبة متزايدة.">Multiple playable maps with increasing difficulty.</li>
+          <li data-en="A* pathfinding so enemies calculate a route to the player on each map." data-ar="خوارزمية A* تجعل الأعداء يحسبون المسار نحو اللاعب في كل خريطة.">A* pathfinding so enemies calculate a route to the player on each map.</li>
+        </ul>
+        <div class="stack"><span>Java</span><span>OOP</span><span>A*</span><span>Game AI</span></div>
+        <p class="more"><a href="https://github.com/rasel-hz/Elllejourney" target="_blank" rel="noopener" data-en="View the source on GitHub →" data-ar="الكود على GitHub ←">View the source on GitHub →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="section-head"><h2 data-en="Certificates" data-ar="الشهادات">Certificates</h2><span class="label">04</span></div>
+    <ul class="certs">
+      <li><div><b>Foundational C# with Microsoft</b><span class="date">freeCodeCamp · Aug 18, 2026</span></div></li>
+      <li><div><b>Introduction to API and RESTful API</b><span class="date">Great Learning · Aug 17, 2026</span></div></li>
+      <li><div><b>Introduction to Software Testing</b><span class="date">Aug 17, 2026</span></div></li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-head"><h2 data-en="Contact" data-ar="تواصل">Contact</h2><span class="label">05</span></div>
+    <p class="big" id="email">your.email@example.com</p>
+    <div class="row">
+      <button class="copy" type="button" id="copy" data-en="Copy email" data-ar="انسخ الإيميل">Copy email</button>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Raseel Al-zayed</span>
+    <span data-en="Built with care, shown in both languages" data-ar="صُممت بعناية، وتعمل باللغتين">Built with care, shown in both languages</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var lang = 'en';
+  var copyBtn = document.getElementById('copy');
+
+  function setLang(next) {
+    lang = next;
+    var isAr = next === 'ar';
+    root.setAttribute('lang', next);
+    root.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+    document.body.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = el.getAttribute(isAr ? 'data-ar' : 'data-en');
+    });
+    document.getElementById('lang').textContent = isAr ? 'English' : 'العربية';
+  }
+
+  document.getElementById('lang').addEventListener('click', function () {
+    setLang(lang === 'en' ? 'ar' : 'en');
+  });
+
+  document.getElementById('theme').addEventListener('click', function () {
+    var dark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+
+  document.querySelectorAll('.filter').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('.filter').forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      document.querySelectorAll('.project').forEach(function (p) {
+        p.hidden = !(f === 'all' || p.getAttribute('data-cat') === f);
+      });
+    });
+  });
+
+  copyBtn.addEventListener('click', function () {
+    var text = document.getElementById('email').textContent;
+    var done = function (msg) {
+      copyBtn.textContent = msg;
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        done(lang === 'ar' ? 'تم النسخ' : 'Copied');
+      }).catch(function () {
+        done(lang === 'ar' ? 'حدد النص وانسخه' : 'Select the text and copy');
+      });
+    } catch (e) {
+      done(lang === 'ar' ? 'حدد النص وانسخه' : 'Select the text and copy');
+    }
+  });
+})();
+</script>
+
+</body></html>
